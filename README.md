@@ -33,9 +33,6 @@ Add This to your Layout File
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:thumbRadius="120dp"
-        app:trackHeight="4dp"
         app:trackTintColor="@color/colorAppLight" />
 ``` 
 And in Activity 
