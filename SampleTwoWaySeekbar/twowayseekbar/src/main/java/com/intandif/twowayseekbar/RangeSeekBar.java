@@ -47,6 +47,12 @@ public class RangeSeekBar extends View {
         this.invalidate();
     }
 
+    public void setDefaultMinMax(int min, int max) {
+        this.leastProgress = min;
+        this.mMaxValue = max;
+        this.invalidate();
+    }
+
     public RangeSeekBar(Context context, AttributeSet attributes, int defaultAttributes) {
         super(context, attributes, defaultAttributes);
 

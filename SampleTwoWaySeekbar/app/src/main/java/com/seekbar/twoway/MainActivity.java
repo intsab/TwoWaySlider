@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mValues.add(480000);
         mValues.add(500000);
 
+        seekBar.setDefaultMinMax(10,5000);
+
         seekBar.setRange(mValues);
         seekBar.setOnValueChangedListener(new RangeSeekBar.onValueChangedListener() {
             @Override
