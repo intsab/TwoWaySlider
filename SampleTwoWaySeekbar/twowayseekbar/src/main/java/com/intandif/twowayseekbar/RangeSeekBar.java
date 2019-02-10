@@ -21,7 +21,6 @@ public class RangeSeekBar extends View {
     private CircleView mMaxValueThumb;
     private BarView mTrack;
     private ArrayList<Integer> mValues;
-    public static ArrayList<Integer> defaultValues;
     private int leastProgress;
     private int mMaxValue;
     private float mBeginTrackOffsetX;
@@ -55,27 +54,16 @@ public class RangeSeekBar extends View {
 
     public RangeSeekBar(Context context, AttributeSet attributes, int defaultAttributes) {
         super(context, attributes, defaultAttributes);
-
-//        TypedArray typedArray = context.obtainStyledAttributes(attributes, Rs.styleable.RangeSliderView);
-
         this.mTrackTintColor = context.getResources().getColor(R.color.colorPrimary);
-
-        //typedArray.getColor(Rs.styleable.RangeSliderView_trackTintColor, ContextCompat.getColor(context, Rs.color.trackTintColor));
         this.mTrackHighlightTintColor = context.getResources().getColor(R.color.colorAccent);
-
-        //typedArray.getColor(Rs.styleable.RangeSliderView_trackHighlightTintColor, ContextCompat.getColor(context, Rs.color.trackHighlightTintColor));
-        Resources resources = context.getResources();
-
-        this.mTrackHeight = 8;//typedArray.getDimension(Rs.styleable.RangeSliderView_trackHeight, resources.getDimension(Rs.dimen.trackHeight));
-        this.mThumbRadius = 28;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbRadius, resources.getDimension(Rs.dimen.thumbRadius));
-        this.mThumbOutlineSize = 3;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbOutlineSize, resources.getDimension(Rs.dimen.thumbOutlineSize));
-
+        this.mTrackHeight = 8;
+        this.mThumbRadius = 28;
+        this.mThumbOutlineSize = 3;
 
         this.mMinValueThumb = new CircleView(this.mThumbRadius, this.mThumbOutlineSize, this.mTrackTintColor, this.mTrackTintColor);
         this.mMaxValueThumb = new CircleView(this.mThumbRadius, this.mThumbOutlineSize, this.mTrackHighlightTintColor, this.mTrackTintColor);
         this.mTrack = new BarView(this.mTrackHeight, this.mTrackTintColor, this.mTrackHighlightTintColor);
 
-//        this.mValues= defaultValues;
         if(this.mValues==null){
             this.mValues = new ArrayList();
 
