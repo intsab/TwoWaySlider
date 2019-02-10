@@ -19,7 +19,7 @@ Step 2. Add the dependency
   
 ```java
 	dependencies {
-		implementation 'com.github.intsab:TwoWaySlider:Tag'
+		implementation 'com.github.intsab:TwoWaySlider:1.0'
 	}
 ``` 
 
