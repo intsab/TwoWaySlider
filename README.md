@@ -2,7 +2,7 @@
 Two way slider is Range Slider that will help you to create Range Selector on Android!
 
 # Screenshot
-<img src="https://github.com/intsab/TagsView-Android/blob/master/Screenshot_20180124-142156.png">
+<img src="https://github.com/intsab/TwoWaySlider/blob/master/SampleTwoWaySeekbar/slider.png">
 <h1>USAGE</h1>
 
 Step 1. Add the JitPack repository to your build file
