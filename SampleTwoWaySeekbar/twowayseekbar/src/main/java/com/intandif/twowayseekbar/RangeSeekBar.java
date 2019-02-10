@@ -21,6 +21,7 @@ public class RangeSeekBar extends View {
     private CircleView mMaxValueThumb;
     private BarView mTrack;
     private ArrayList<Integer> mValues;
+    public static ArrayList<Integer> defaultValues;
     private int leastProgress;
     private int mMaxValue;
     private float mBeginTrackOffsetX;
@@ -41,6 +42,10 @@ public class RangeSeekBar extends View {
         this.invalidate();
     }
 
+    public void setRange(ArrayList<Integer> values){
+        this.mValues= values;
+        this.invalidate();
+    }
 
     public RangeSeekBar(Context context, AttributeSet attributes, int defaultAttributes) {
         super(context, attributes, defaultAttributes);
@@ -63,14 +68,19 @@ public class RangeSeekBar extends View {
         this.mMinValueThumb = new CircleView(this.mThumbRadius, this.mThumbOutlineSize, this.mTrackTintColor, this.mTrackTintColor);
         this.mMaxValueThumb = new CircleView(this.mThumbRadius, this.mThumbOutlineSize, this.mTrackHighlightTintColor, this.mTrackTintColor);
         this.mTrack = new BarView(this.mTrackHeight, this.mTrackTintColor, this.mTrackHighlightTintColor);
-        this.mValues = new ArrayList();
 
-        for(int x=0;x<100;x++){
-            mValues.add(x);
+//        this.mValues= defaultValues;
+        if(this.mValues==null){
+            this.mValues = new ArrayList();
+
+            for(int x=0;x<100;x++){
+                mValues.add(x);
+            }
         }
 
-        this.leastProgress = 1;
-        this.mMaxValue = 100;
+
+        this.leastProgress = mValues.get(0);
+        this.mMaxValue = mValues.get(mValues.size()-1);
     }
 
     protected float progress(int value) {
