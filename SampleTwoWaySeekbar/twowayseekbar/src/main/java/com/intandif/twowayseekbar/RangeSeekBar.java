@@ -67,8 +67,8 @@ public class RangeSeekBar extends View {
         Resources resources = context.getResources();
 
         this.mTrackHeight = 8;//typedArray.getDimension(Rs.styleable.RangeSliderView_trackHeight, resources.getDimension(Rs.dimen.trackHeight));
-        this.mThumbRadius = 22;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbRadius, resources.getDimension(Rs.dimen.thumbRadius));
-        this.mThumbOutlineSize = 4;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbOutlineSize, resources.getDimension(Rs.dimen.thumbOutlineSize));
+        this.mThumbRadius = 28;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbRadius, resources.getDimension(Rs.dimen.thumbRadius));
+        this.mThumbOutlineSize = 3;//typedArray.getDimension(Rs.styleable.RangeSliderView_thumbOutlineSize, resources.getDimension(Rs.dimen.thumbOutlineSize));
 
 
         this.mMinValueThumb = new CircleView(this.mThumbRadius, this.mThumbOutlineSize, this.mTrackTintColor, this.mTrackTintColor);
@@ -93,7 +93,7 @@ public class RangeSeekBar extends View {
         int index = this.mValues.indexOf(value);
         int count = this.mValues.size();
         float radius = this.mThumbRadius + this.mThumbOutlineSize / 2.0F;
-        if (index == 0) {
+        if (index <=0) {
             return radius;
         } else {
             return index == count - 1 ? (float) this.getWidth() - radius : ((float) this.getWidth() - radius * 2.0F) * (float) index / (float) count + radius;
