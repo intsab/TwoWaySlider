@@ -51,5 +51,10 @@ And in Activity
             }
         });
 ``` 
+
+if you want your custom range pass Array list in 
+  ```java
+  seekBar.setRange(mValues);
+  ```
  <h1>Developers</h1>
  M Intsab Haider (Mobile & Web Application Developer)</br>
