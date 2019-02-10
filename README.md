@@ -21,7 +21,7 @@ Step 2. Add the dependency
   
 ```java
 	dependencies {
-		implementation 'com.github.intsab:TwoWaySlider:1.1'
+		implementation 'com.github.intsab:TwoWaySlider:1.3'
 	}
 ``` 
 Add This to your Layout File
