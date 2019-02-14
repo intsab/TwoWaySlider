@@ -23,6 +23,7 @@ public class RangeSeekBar extends View {
     private ArrayList<Integer> mValues;
     private int leastProgress;
     private int mMaxValue;
+
     private float mBeginTrackOffsetX;
 
     private onValueChangedListener mOnValueChangedListener;
@@ -46,9 +47,14 @@ public class RangeSeekBar extends View {
         this.invalidate();
     }
 
-    public void setDefaultMinMax(int min, int max) {
-        this.leastProgress = min;
+    public void setDefaultMax(int max) {
+
         this.mMaxValue = max;
+        this.invalidate();
+    }
+    public void setDefaultMin(int min) {
+
+        this.leastProgress = min;
         this.invalidate();
     }
 
@@ -71,7 +77,6 @@ public class RangeSeekBar extends View {
                 mValues.add(x);
             }
         }
-
 
         this.leastProgress = mValues.get(0);
         this.mMaxValue = mValues.get(mValues.size()-1);
@@ -96,6 +101,13 @@ public class RangeSeekBar extends View {
         this.mTrack.draw(canvas, this.getWidth(), minValueOffsetX, maxValueOffsetX, offsetY - this.mTrackHeight / 2.0F);
         this.mMinValueThumb.draw(canvas, minValueOffsetX, offsetY);
         this.mMaxValueThumb.draw(canvas, maxValueOffsetX, offsetY);
+
+    }
+
+    public void seekMinToZero(){
+        this.leastProgress=1;
+
+        invalidate();
 
     }
 

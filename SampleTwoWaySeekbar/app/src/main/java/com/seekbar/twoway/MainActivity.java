@@ -1,7 +1,7 @@
 package com.seekbar.twoway;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.intandif.twowayseekbar.RangeSeekBar;
@@ -11,12 +11,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RangeSeekBar seekBar;
+
+    Boolean isFirstTime= true;
+    int tempMinVal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        seekBar= (RangeSeekBar)findViewById(R.id.rangeSliderView);
+        seekBar = (RangeSeekBar) findViewById(R.id.rangeSliderView);
         ArrayList<Integer> mValues = new ArrayList();
         mValues.add(1);
         mValues.add(20000);
@@ -45,18 +48,34 @@ public class MainActivity extends AppCompatActivity {
         mValues.add(480000);
         mValues.add(500000);
 
-        seekBar.setDefaultMinMax(10,5000);
+//        seekBar.setDefaultMinMax(10, 5000);
 
         seekBar.setRange(mValues);
+        seekBar.setDefaultMax(120000);
+        seekBar.setDefaultMin(20000);
         seekBar.setOnValueChangedListener(new RangeSeekBar.onValueChangedListener() {
             @Override
             public void onValueChanged(int minimumValue, int maximumValue) {
-                Log.d("","");
+                if(isFirstTime) {
+                    if (tempMinVal == 0) {
+                        tempMinVal = minimumValue;
+                    }
+                    if (minimumValue == tempMinVal) {
+                        minimumValue= 1;
+                    }else{
+                        isFirstTime= false;
+                    }
+                }
+                Log.d("", "");
+
+//                if (minimumValue < 360000) {
+//                    seekBar.seekMinToZero();
+//                }
             }
 
             @Override
             public void onFinishScrolling(int minimumValue, int maximumValue) {
-                Log.d("","");
+                Log.d("", "");
             }
         });
     }
