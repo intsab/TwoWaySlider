@@ -55,5 +55,11 @@ if you want your custom range pass Array list in
   ```java
   seekBar.setRange(mValues);
   ```
+  
+if you want to set menual value to Max or min on start of activity or at any point You can do it like this!
+  ```java
+  seekBar.setDefaultMax(val);
+  seekBar.setDefaultMin(val);
+  ```
  <h1>Developers</h1>
  M Intsab Haider (Mobile & Web Application Developer)</br>
